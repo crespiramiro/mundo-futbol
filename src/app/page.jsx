@@ -71,15 +71,15 @@ const Home = () => {
       </select>
 
       {teamEvents.length > 0 && (
-        <div className="team-events text-center bg-[#5C573E] w-[85%] mb-16 py-16 text-white ">
-          <h2 className="text-3xl" >Ultimos partidos del <b>{team}</b> como local</h2>
+        <div className="team-events text-center bg-[#5C573E] w-[85%] mb-16 px-6 py-16 text-white ">
+          <h2 className="md:text-3xl" >Ultimos partidos del <b>{team}</b> como local</h2>
           <ul className="flex flex-col my-5 gap-y-2" >
             {teamEvents.map((event) => (
               <div className="text-xl flex flex-col gap-y-2 mb-3 " >
-                <li className="text-white text-3xl " key={event.idEvent}>{event.strEvent}  -  {event.dateEvent}
+                <li className="text-white md:text-3xl " key={event.idEvent}>{event.strEvent}  -  {event.dateEvent}
               </li>
               <li className="flex flex-col justify-center items-center" ><img src={event.strThumb} alt="a" width={200} /></li>
-              <li className="text-3xl" >{event.intHomeScore}-{event.intAwayScore} </li>
+              <li className="md:text-3xl" >{event.intHomeScore}-{event.intAwayScore} </li>
               <button onClick={() => window.open(event.strVideo, "_blank")} className="p-3 h-fit w-fit self-center rounded-lg shadow-xl bg-[#D87CAC] text-white text-sm" >Jugadas destacadas</button>
               </div>
             ))}
