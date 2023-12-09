@@ -58,7 +58,7 @@ const Home = () => {
 
   return (
     <main className='flex flex-col gap-y-4 min-h-screen min-w-full justify-center items-center bg-[#EBCFB2]'>
-      <h1 className="text-5xl py-4 font-bold text-[#5C573E] " >Bienvenido a Mundo Futbol</h1>
+      <h1 className="text-5xl py-4 text-center font-bold text-[#5C573E] " >Bienvenido a Mundo Futbol</h1>
 
       <select className="p-1 bg-[#D87CAC] "
         value={team}
