@@ -57,10 +57,22 @@ const Home = () => {
   }, []); // Efecto se ejecuta solo en el montaje inicial
 
   return (
-    <main className='flex flex-col gap-y-4 min-h-screen min-w-full justify-center items-center bg-[#EBCFB2]'>
-      <h1 className="text-5xl py-4 text-center font-bold text-[#5C573E] " >Bienvenido a Mundo Futbol</h1>
+    <main className='flex flex-col min-h-screen h-screen min-w-full  bg-white text-white overflow-x-hidden'>
+      
+      <nav className="bg-[#2D4F39] h-auto w-full py-6 flex flex-row justify-start items-center px-10 " ><h1 className="text-5xl py-4 font-bold" >MundoFutbol</h1></nav>
 
-      <select className="p-1 bg-[#D87CAC] "
+      <section className="z-10" >
+        <div className="w-screen h-[26rem] bg-cover  bg-center " style={{backgroundImage: "url('stadium.avif')"}}  >
+        </div>
+        </section>
+
+        <section className="bg-[#2D4F39] h-auto w-full py-12 text-center " >
+            <p className="text-3xl py-6 text-center font-semibold " >Aca encontraras informacion sobre tus equipos y ligas favoritas</p>
+        </section>
+
+    <section className="bg-[#2D4f39] flex flex-col min-h-screen justify-start items-center " >
+
+     <select className="p-2 flex w-fit font-semibold text-[#2D4f39] bg-white "
         value={team}
         onChange={(e) => handleTeamChange(e.target.value)}
       >
@@ -71,7 +83,7 @@ const Home = () => {
       </select>
 
       {teamEvents.length > 0 && (
-        <div className="team-events text-center bg-[#5C573E] w-[85%] mb-16 px-6 py-16 text-white ">
+        <div className="team-events text-center bg-[#2D4f39] w-screen mb-16 px-6 py-16 text-white ">
           <h2 className="md:text-3xl" >Ultimos partidos del <b>{team}</b> como local</h2>
           <ul className="flex flex-col my-5 gap-y-2" >
             {teamEvents.map((event) => (
@@ -80,12 +92,14 @@ const Home = () => {
               </li>
               <li className="flex flex-col justify-center items-center" ><img src={event.strThumb} alt="a" width={200} /></li>
               <li className="md:text-3xl" >{event.intHomeScore}-{event.intAwayScore} </li>
-              <button onClick={() => window.open(event.strVideo, "_blank")} className="p-3 h-fit w-fit self-center rounded-lg shadow-xl bg-[#D87CAC] text-white text-sm" >Jugadas destacadas</button>
+              <button onClick={() => window.open(event.strVideo, "_blank")} className="p-3 h-fit w-fit self-center rounded-lg shadow-xl bg-[#963484] text-white text-sm" >Jugadas destacadas</button>
               </div>
             ))}
           </ul>
         </div>
-      )}
+      )} 
+    </section>
+
     </main>
   );
 };
