@@ -59,7 +59,7 @@ const Home = () => {
   return (
     <main className='flex flex-col min-h-screen h-screen min-w-full  bg-white text-white overflow-x-hidden'>
       
-      <nav className="bg-[#2D4F39] h-auto w-full py-6 flex flex-row justify-start items-center px-10 " ><h1 className="text-5xl py-4 font-bold" >MundoFutbol</h1></nav>
+      <nav className="bg-[#2D4F39] h-auto w-full py-6 flex flex-row justify-start items-center px-10 " ><h1 className="text-5xl py-4 font-bold" >MundoPremier</h1></nav>
 
       <section className="z-10" >
         <div className="w-screen h-[26rem] bg-cover  bg-center " style={{backgroundImage: "url('stadium.avif')"}}  >
@@ -67,7 +67,7 @@ const Home = () => {
         </section>
 
         <section className="bg-[#2D4F39] h-auto w-full py-12 text-center " >
-            <p className="text-3xl py-6 text-center font-semibold " >Aca encontraras informacion sobre tus equipos y ligas favoritas</p>
+            <p className="text-3xl py-6 text-center font-semibold " >Aca encontraras informacion sobre los ultimos partidos de tu equipo favorito en la mejor liga de todas</p>
         </section>
 
     <section className="bg-[#2D4f39] flex flex-col min-h-screen justify-start items-center " >
