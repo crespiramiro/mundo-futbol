@@ -1,12 +1,16 @@
  'use client'
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Table from "@/components/Table";
 
 const Home = () => {
   const initialData = [];
   const [data, setData] = useState(initialData);
   const [team, setTeam] = useState('');
   const [teamEvents, setTeamEvents] = useState([]);
+  const [tableData, setTableData] = useState([]);  // Nuevo estado para la tabla
+  const [selectedTeamRow, setSelectedTeamRow] = useState(null);  // Nuevo estado para la fila seleccionada
+
 
   const handleTeamChange = async (selectedTeam) => {
     setTeam(selectedTeam);
@@ -56,21 +60,38 @@ const Home = () => {
     fetchData(); // Llamada a fetchData en el montaje inicial
   }, []); // Efecto se ejecuta solo en el montaje inicial
 
+  useEffect(() => {
+    const fetchTableData = async () => {
+      try {
+        const tableUrl = 'https://thesportsdb.com/api/v1/json/3/lookuptable.php?l=4328&s=2023-2024';
+        const response = await axios.get(tableUrl);
+        const tableData = response.data.table || [];
+        setTableData(tableData);
+      } catch (error) {
+        console.error('Error fetching table data:', error);
+      }
+    };
+
+    fetchTableData();
+  }, []);
+  
+  
   return (
-    <main className='flex flex-col min-h-screen h-screen min-w-full  bg-white text-white overflow-x-hidden'>
-      
-      <nav className="bg-[#2D4F39] h-auto w-full py-6 flex flex-row justify-start items-center px-10 " ><h1 className="text-5xl py-4 font-bold" >MundoPremier</h1></nav>
+    <main className='flex flex-col min-h-screen h-screen min-w-full bg-[#2D4F39]  text-white overflow-x-hidden scroll-smooth '>
 
       <section className="z-10" >
-        <div className="w-screen h-[26rem] bg-cover  bg-center " style={{backgroundImage: "url('stadium.avif')"}}  >
+        <div className="w-screen py-12 px-24 h-screen bg-cover flex flex-col justify-start items-start bg-center " style={{backgroundImage: "url('stadium.avif')"}}  >
+          <h1 className="text-7xl font-bold mb-2 " >Premier League <br />World</h1>
+          <p className="text-xl max-w-xl mb-6 " >Welcome to PremierWorld, the perfect place to get info about your favorite Premier League team</p>
+          <button className="py-2 px-6 border-stone-300 border-2 font-bold " ><a href="#matches">Explore</a></button>
         </div>
         </section>
 
-        <section className="bg-[#2D4F39] h-auto w-full py-12 text-center " >
+        <section  id="matches" className="bh-auto w-full py-12 text-center " >
             <p className="text-3xl py-6 text-center font-semibold " >Aca encontraras informacion sobre los ultimos partidos de tu equipo favorito en la mejor liga de todas</p>
         </section>
 
-    <section className="bg-[#2D4f39] flex flex-col min-h-screen justify-start items-center " >
+    <section className="flex flex-col min-h-screen justify-start items-center " >
 
      <select className="p-2 flex w-fit font-semibold text-[#2D4f39] bg-white "
         value={team}
@@ -83,7 +104,7 @@ const Home = () => {
       </select>
 
       {teamEvents.length > 0 && (
-        <div className="team-events text-center bg-[#2D4f39] w-screen mb-16 px-6 py-16 text-white ">
+        <div className="team-events text-center w-screen px-6  text-white ">
           <h2 className="md:text-3xl" >Ultimos partidos del <b>{team}</b> como local</h2>
           <ul className="flex flex-col my-5 gap-y-2" >
             {teamEvents.map((event) => (
@@ -97,7 +118,15 @@ const Home = () => {
             ))}
           </ul>
         </div>
-      )} 
+      )}   
+
+
+               {/* Sección de la tabla de clasificación */}
+      <section className=" flex flex-col min-h-screen justify-start items-center">
+        <h2 className="text-3xl py-6 text-center font-semibold text-white">Tabla de Clasificación</h2>
+        <Table selectedTeamRow={selectedTeamRow} tableData={tableData} />
+      </section>
+
     </section>
 
     </main>
