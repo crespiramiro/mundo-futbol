@@ -77,16 +77,15 @@ const Home = () => {
   
   
   return (
-    <main className='flex flex-col min-h-screen h-screen min-w-full bg-[#2D4F39]  text-white overflow-x-hidden scroll-smooth '>
+    <main className='flex flex-col min-h-screen h-screen w-full bg-[#2D4F39] text-white overflow-x-hidden scroll-smooth'>
 
-      <section className="z-10" >
-        <div className="w-screen py-12 px-24 h-screen bg-cover flex flex-col justify-start items-start bg-center " style={{backgroundImage: "url('stadium.avif')"}}  >
-          <h1 className="text-7xl font-bold mb-2 " >Premier League <br />World</h1>
-          <p className="text-xl max-w-xl mb-6 " >Welcome to PremierWorld, the perfect place to get info about your favorite Premier League team</p>
-          <button className="py-2 px-6 border-stone-300 border-2 font-bold " ><a href="#matches">Explore</a></button>
-        </div>
-        </section>
-
+   <section className="z-10">
+      <div className="sm:w-full py-12 px-12 sm:px-8 h-screen bg-cover flex flex-col gap-y-10 justify-start items-start bg-center" style={{backgroundImage: "url('stadium.avif')"}}>
+         <h1 className="text-7xl font-bold mb-2 sm:text-4xl md:text-5xl lg:text-6xl">Premier League <br />World</h1>
+         <p className="text-xl max-w-xl mb-6 sm:text-base md:text-lg lg:text-xl">Welcome to PremierWorld, the perfect place to get info about your favorite Premier League team</p>
+         <button className="py-2 px-6 border-stone-300 border-2 font-bold"><a href="#matches">Explore</a></button>
+      </div>
+   </section>
         <section  id="matches" className="bh-auto w-full py-12 text-center " >
             <p className="text-3xl py-6 text-center font-semibold " >Aca encontraras informacion sobre los ultimos partidos de tu equipo favorito en la mejor liga de todas</p>
         </section>
@@ -122,12 +121,16 @@ const Home = () => {
 
 
                {/* Sección de la tabla de clasificación */}
-      <section className=" flex flex-col min-h-screen justify-start items-center">
+             
         <h2 className="text-3xl py-6 text-center font-semibold text-white">Tabla de Clasificación</h2>
-        <Table selectedTeamRow={selectedTeamRow} tableData={tableData} />
+        <Table
+  selectedTeamRow={team}
+  setSelectedTeamRow={setSelectedTeamRow}
+  tableData={tableData}
+/>
       </section>
 
-    </section>
+    
 
     </main>
   );

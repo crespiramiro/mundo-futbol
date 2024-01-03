@@ -1,8 +1,8 @@
 
-    export default function Table({selectedTeamRow, tableData}) {
+    export default function Table({selectedTeamRow, setSelectedTeamRow, tableData}) {
   return (
-    <div className="table-container min-h-screen h-screen w-full px-24 pb-12">
-      <table className="table min-h-screen w-full">
+    <div className="table-container min-h-screen h-screen w-full px-4 md:px-24 pb-12 overflow-x-auto overflow-y-visible ">
+    <table className="table min-w-full">
         <thead>
           <tr>
             <th>Posición</th>
@@ -19,10 +19,11 @@
         </thead>
         <tbody>
           {tableData.map((team, index) => (
-            <tr
-              key={team.idTeam}
-              className={index === selectedTeamRow ? 'text-black text-center bg-white' : 'text-center'}
-            >
+           <tr
+           key={team.idTeam}
+           className={team.strTeam === selectedTeamRow ? 'text-black text-center bg-white' : 'text-center'}
+           onClick={() => setSelectedTeamRow(team.strTeam)} 
+         >
               <td className="text-center">{team.intRank}</td>
               <td className="text-center">
                 <img src={team.strTeamBadge} alt={`${team.strTeam} badge`} className="team-badge" />
@@ -40,7 +41,7 @@
           ))}
         </tbody>
       </table>
-    </div>
+      </div>
   );
 };
 
