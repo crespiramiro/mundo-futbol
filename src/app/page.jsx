@@ -83,7 +83,7 @@ const Home = () => {
       <div className="sm:w-full py-12 px-12 sm:px-8 h-screen bg-cover flex flex-col gap-y-10 justify-start items-start bg-center" style={{backgroundImage: "url('stadium.avif')"}}>
          <h1 className="text-7xl font-bold mb-2 sm:text-4xl md:text-5xl lg:text-6xl">Premier League <br />World</h1>
          <p className="text-xl max-w-xl mb-6 sm:text-base md:text-lg lg:text-xl">Welcome to PremierWorld, the perfect place to get info about your favorite Premier League team</p>
-         <button className="py-2 px-6 border-stone-300 border-2 font-bold"><a href="#matches">Explore</a></button>
+         <button className="py-2 px-6 border-stone-300 border-2 font-bold hover:bg-slate-600/25 "><a href="#matches">Explore</a></button>
       </div>
    </section>
         <section  id="matches" className="bh-auto w-full py-12 text-center " >
