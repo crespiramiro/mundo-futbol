@@ -93,7 +93,7 @@ const Home = () => {
         value={team}
         onChange={(e) => handleTeamChange(e.target.value)}
       >
-        <option value="" disabled>Selecciona un equipo</option>
+        <option value="" disabled>Choose a Team</option>
         {data.map((teamInfo) => (
           <option key={teamInfo.idTeam} value={teamInfo.strTeam}>{teamInfo.strTeam}</option>
         ))}
@@ -101,7 +101,7 @@ const Home = () => {
 
       {teamEvents.length > 0 && (
         <div className="team-events text-center w-screen px-6  text-white ">
-          <h2 className="md:text-3xl" >Ultimos partidos del <b>{team}</b> como local</h2>
+          <h2 className="md:text-3xl" >{team}'s last home games</h2>
           <ul className="flex flex-col my-5 gap-y-2" >
             {teamEvents.map((event) => (
               <div className="text-xl flex flex-col gap-y-2 mb-3 " >
@@ -109,7 +109,7 @@ const Home = () => {
               </li>
               <li className="flex flex-col justify-center items-center" ><img src={event.strThumb} alt="a" width={200} /></li>
               <li className="md:text-3xl" >{event.intHomeScore}-{event.intAwayScore} </li>
-              <button onClick={() => window.open(event.strVideo, "_blank")} className="p-3 h-fit w-fit self-center rounded-lg shadow-xl bg-[#963484] text-white text-sm" >Jugadas destacadas</button>
+              <button onClick={() => window.open(event.strVideo, "_blank")} className="p-3 h-fit w-fit self-center rounded-lg shadow-xl bg-[#963484] text-white text-sm" >Highlights</button>
               </div>
             ))}
           </ul>
