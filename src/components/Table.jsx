@@ -5,16 +5,16 @@
     <table className="table min-w-full">
         <thead>
           <tr>
-            <th>Posición</th>
-            <th>Equipo</th>
-            <th>Jugados</th>
-            <th>Ganados</th>
-            <th>Empatados</th>
-            <th>Perdidos</th>
-            <th>Goles a favor</th>
-            <th>Goles en contra</th>
-            <th>Diferencia de goles</th>
-            <th>Puntos</th>
+            <th>Position</th>
+            <th>Team</th>
+            <th>Played</th>
+            <th>Won</th>
+            <th>Drawn</th>
+            <th>Lost</th>
+            <th>GF</th>
+            <th>GA</th>
+            <th>GD</th>
+            <th>Points</th>
           </tr>
         </thead>
         <tbody>
