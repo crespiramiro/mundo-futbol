@@ -86,13 +86,10 @@ const Home = () => {
          <button className="py-2 px-6 border-stone-300 border-2 font-bold hover:bg-slate-600/25 "><a href="#matches">Explore</a></button>
       </div>
    </section>
-        <section  id="matches" className="bh-auto w-full py-12 text-center " >
-            <p className="text-3xl py-6 text-center font-semibold " >Aca encontraras informacion sobre los ultimos partidos de tu equipo favorito en la mejor liga de todas</p>
-        </section>
 
-    <section className="flex flex-col min-h-screen justify-start items-center " >
+    <section id="matches" className="flex flex-col min-h-screen justify-start items-center " >
 
-     <select className="p-2 flex w-fit font-semibold text-[#2D4f39] bg-white "
+     <select className="p-2 my-24 flex w-fit font-semibold text-[#2D4f39] bg-white "
         value={team}
         onChange={(e) => handleTeamChange(e.target.value)}
       >
@@ -122,7 +119,7 @@ const Home = () => {
 
                {/* Sección de la tabla de clasificación */}
              
-        <h2 className="text-3xl py-6 text-center font-semibold text-white">Tabla de Clasificación</h2>
+        <h2 className="text-3xl pb-6 mb-8 text-center font-semibold text-white">2023/2024 Season</h2>
         <Table
   selectedTeamRow={team}
   setSelectedTeamRow={setSelectedTeamRow}
