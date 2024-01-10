@@ -22,7 +22,8 @@ const Home = () => {
 
       if (selectedTeamInfo) {
         const teamId = selectedTeamInfo.idTeam || selectedTeamInfo.idTeamAPI;
-        const eventsUrl = `https://thesportsdb.com/api/v1/json/3/eventslast.php?id=${teamId}`;
+        console.log("teamId:", teamId);
+        const eventsUrl = `https://www.thesportsdb.com/api/v1/json/3/eventslast.php?id=${teamId}`;
         const response = await axios.get(eventsUrl);
         const eventsData = response.data.results;
         setTeamEvents(eventsData);
@@ -37,7 +38,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = "https://thesportsdb.com/api/v1/json/3/search_all_teams.php?l=English%20Premier%20League";
+        const url = 'https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?l=English%20Premier%20League';
         const res = await axios.get(url);
         const newData = res.data.teams;
         setData(newData);
@@ -63,7 +64,7 @@ const Home = () => {
   useEffect(() => {
     const fetchTableData = async () => {
       try {
-        const tableUrl = 'https://thesportsdb.com/api/v1/json/3/lookuptable.php?l=4328&s=2023-2024';
+        const tableUrl = 'https://www.thesportsdb.com/api/v1/json/3/lookuptable.php?l=4328&s=2023-2024';
         const response = await axios.get(tableUrl);
         const tableData = response.data.table || [];
         setTableData(tableData);
